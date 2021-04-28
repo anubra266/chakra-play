@@ -1,6 +1,6 @@
 import HelloWorld from "@/views/components/HelloWorld";
 
-export default (a) => {
+export default () => {
     return (
         <div>
             <HelloWorld />
