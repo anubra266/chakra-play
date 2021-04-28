@@ -7,8 +7,8 @@ const initialPage: any = el?.dataset.page;
 render(
     <InertiaApp
         initialPage={JSON.parse(initialPage)}
-        resolveComponent={(name) =>
-            import(`@/pages/${name}`).then((module) => module.default)
+        resolveComponent={async (name) =>
+            await import(`../pages/${name}`).then((module) => module.default)
         }
     />,
     el
