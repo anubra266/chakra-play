@@ -1,46 +1,67 @@
 # VTRIL
 
-
 **VTRIL** is a Vite Typescript React Inertia Laravel boilerplate.
 
-The aim is to replace the default Laravel Mix which uses webpack with **vite**. 
+The aim is to replace the default Laravel Mix which uses webpack with **vite**.
 Vite is very much faster than Laravel Mix as it bundles dependencies with _esbuild_.
 
+This boilerplate uses _Ziggy_ for frontend routing.
 
-## Run Locally
+### Run Locally
 
-Clone the project
+-   Click Use this template at the top of the Repo
+-   Clone your generated repo to your local system
+
+-   Go to the project directory
 
 ```bash
-  git clone https://github.com/anubra266/vtril.git my-project
+    cd my-project
 ```
 
-Go to the project directory
+-   Install PHP Composer dependencies
 
 ```bash
-  cd my-project
+    composer install
 ```
 
-Install dependencies
+-   Create Environment config
 
 ```bash
-  npm install
-  //or
-  yarn
+    cp .env.example .env
 ```
 
-Start the server
+-   Generate key
 
 ```bash
-  npm run dev
-  //or
-  yarn dev
+    php artisan key:generate
 ```
 
-If you want typescript warnings in your terminal, use
+-   Install NPM dependencies
 
 ```bash
-  npm run devt
-  //or
-  yarn devt
+    npm install
+    #or
+    yarn
+```
+
+-   Start the bundle server
+
+```bash
+    npm run dev
+    #or
+    yarn dev
+```
+
+-   If you want typescript warnings in your terminal, use
+
+```bash
+    npm run devt
+    #or
+    yarn devt
+```
+
+-   Start the Laravel App
+
+```bash
+    php artisan serve
 ```
