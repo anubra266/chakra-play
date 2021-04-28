@@ -7,6 +7,7 @@
 
   <title>Laravel Vite React Inertia App</title>
   @react
+  @routes
   @vite
 </head>
 
