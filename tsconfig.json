@@ -5,10 +5,10 @@
         "moduleResolution": "node",
         "strict": true,
         "jsx": "preserve",
-        "sourceMap": true,  
+        "sourceMap": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "isolatedModules":true,
+        "isolatedModules": true,
         "lib": [
             "esnext",
             "dom"

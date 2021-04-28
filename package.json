@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "devt": "concurrently -n \"vite,typescript\" -c \"white,green\"  \"vite --clearScreen false\" \"tsc -w --preserveWatchOutput\"",
+        "devt": "concurrently -n \"vite,typescript\" -c \"white,green\"  \"vite --clearScreen false\" \"tsc --noEmit true -w --preserveWatchOutput\"",
         "build": "vite build",
         "serve": "vite preview"
     },
@@ -21,6 +21,7 @@
         "@inertiajs/inertia": "^0.8.7",
         "@inertiajs/inertia-react": "^0.5.12",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "vtril-progress": "^1.0.1"
     }
 }
