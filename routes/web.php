@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return inertia('index');
-});
+$router->inertia('/', 'index')->name('home');
+
+Route::get('/about', function () {
+    sleep(1); //To see progress bar
+    return inertia('about');
+})->name('about');

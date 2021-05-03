@@ -5,7 +5,8 @@
 The aim is to replace the default Laravel Mix which uses webpack with **vite**.
 Vite is very much faster than Laravel Mix as it bundles dependencies with _esbuild_.
 
-This boilerplate uses _Ziggy_ for frontend routing, utilises a custom Inertia Progress package - [anubra266/vtril-progress](https://github.com/anubra266/vtril-progress)
+This boilerplate uses _Ziggy_ for frontend routing, utilises a custom Inertia Progress package - [anubra266/vtril-progress](https://github.com/anubra266/vtril-progress),
+and the [anubra266/react-errbo](https://github.com/anubra266/react-errbo) package to display errors.
 
 ### Run Locally
 

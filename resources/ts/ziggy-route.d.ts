@@ -1,14 +1,40 @@
-//? Type declarations for Ziggy `route` method
+//? Type declarations for Ziggy `route`
 
-type Param = string | number;
+type EncodeURIParamType = string | number | boolean;
 
-type Params = Param | Param[] | Record<string, Param | boolean>;
+type InputValue =
+    | {
+          id: number;
+      }
+    | EncodeURIParamType;
 
-type Config = {
-    routes: Record<string, any>;
-    url: string;
-    port: number | boolean;
-};
+type NormalizedParams =
+    | {
+          [key: string]: InputValue;
+      }
+    | InputValue[];
+
+type Params = NormalizedParams | InputValue;
+
+interface Route {
+    uri: string;
+    methods: Array<
+        "GET" | "HEAD" | "POST" | "PATCH" | "PUT" | "OPTIONS" | "DELETE"
+    >;
+    domain?: null | string;
+}
+interface Config {
+    namedRoutes: {
+        [key: string]: Route;
+    };
+    baseUrl: string;
+    baseProtocol: "http" | "https";
+    baseDomain: string;
+    basePort?: number | null;
+    defaultParameters: {
+        [_: string]: string | number;
+    };
+}
 
 type Current = (name?: string, params?: Params) => boolean | string | undefined;
 
@@ -40,7 +66,7 @@ type Router = {
      *
      * @return {Object}
      */
-    params: Record<string, Param>;
+    params: NormalizedParams;
 
     /**
      * Check whether the given route exists.
@@ -51,13 +77,6 @@ type Router = {
     has: (name: string) => boolean;
 };
 
-type Route = (
-    name?: string,
-    params?: Params,
-    absolute?: boolean,
-    config?: Config
-) => string & Router;
-
 /**
  * @param {String} name - Route name.
  * @param {(String|Number|Array|Object)} params - Route parameters.
@@ -67,4 +86,10 @@ type Route = (
  * @return {string | Router}
  */
 
-declare const route: Route;
+declare function route(): Router;
+declare function route(
+    name: string,
+    params?: Params,
+    absolute?: boolean,
+    config?: Config
+): string;
