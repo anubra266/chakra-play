@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b75b1307d71d9d224097d7b8062ac2ac",
+    "content-hash": "5cfd8898a988f979555935eb8c2efe2b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2585,16 +2585,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.6.3",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "97b53951e9623b3e38babf274c335913bf320a1a"
+                "reference": "a28108b61dac8a83de6c97f09a5a1e98f4d75522"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/97b53951e9623b3e38babf274c335913bf320a1a",
-                "reference": "97b53951e9623b3e38babf274c335913bf320a1a",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/a28108b61dac8a83de6c97f09a5a1e98f4d75522",
+                "reference": "a28108b61dac8a83de6c97f09a5a1e98f4d75522",
                 "shasum": ""
             },
             "require": {
@@ -2633,7 +2633,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.3"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.7.0"
             },
             "funding": [
                 {
@@ -2641,7 +2641,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-27T06:17:34+00:00"
+            "time": "2021-05-06T21:49:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
