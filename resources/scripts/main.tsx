@@ -1,4 +1,5 @@
 import { InertiaApp } from "@inertiajs/inertia-react";
+import React from "react";
 import { render } from "react-dom";
 import ErrorBoundary from "react-errbo";
 import App from "@/app";

@@ -1,3 +1,4 @@
+import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { HiShare } from "react-icons/hi";

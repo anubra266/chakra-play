@@ -1,4 +1,5 @@
 import { Icon, IconButton, IconButtonProps, Tooltip } from "@chakra-ui/react";
+import React from "react";
 
 interface ActionProps extends Partial<IconButtonProps> {
     title: string;

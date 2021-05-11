@@ -1,3 +1,4 @@
+import React from "react";
 import { IconButton, IconButtonProps } from "@chakra-ui/button";
 import { useBoolean } from "@chakra-ui/hooks";
 import Icon from "@chakra-ui/icon";
@@ -10,22 +11,27 @@ import {
     PopoverProps,
     PopoverTrigger,
 } from "@chakra-ui/popover";
-import { useContext } from "react";
+
 import { BsLayoutSplit, BsLayoutTextSidebar } from "react-icons/bs";
 import { MdPhonelink } from "react-icons/md";
 import { IoBrowsersOutline } from "react-icons/io5";
 import { VscSplitVertical } from "react-icons/vsc";
 import { Tooltip } from "@chakra-ui/tooltip";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { PlaygroundContext, PlayGroundProps } from "~/providers/playground";
 import { IconType } from "react-icons";
+import { useStoreActions, useStoreState } from "@/store/hooks";
+import { Orientation } from "@/store/orientation";
 
 type EditorLayoutProps = Partial<IconButtonProps> & {
     placement?: PopoverProps["placement"];
 };
 
 const EditorLayout = (props: EditorLayoutProps) => {
-    const { orientation, setOrientation } = useContext(PlaygroundContext);
+    const orientation = useStoreState((state) => state.orientation.state);
+    const setOrientation = useStoreActions(
+        (actions) => actions.orientation.set
+    );
+
     const { placement = "right-start", ...rest } = props;
     const [isResponsiveMode, setResponsiveMode] = useBoolean();
     const layout = layouts.find((l) => l.key === orientation);
@@ -33,7 +39,7 @@ const EditorLayout = (props: EditorLayoutProps) => {
 
     return (
         <>
-            <Popover placement={placement}>
+            <Popover trigger="hover" placement={placement}>
                 <PopoverTrigger>
                     <IconButton
                         isRound
@@ -99,7 +105,7 @@ const EditorLayout = (props: EditorLayoutProps) => {
 export default EditorLayout;
 
 type Layout = {
-    key: PlayGroundProps["orientation"];
+    key: Orientation;
     title: string;
     icon: IconType;
 };

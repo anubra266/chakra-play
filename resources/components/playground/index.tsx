@@ -1,49 +1,17 @@
-import { Key, Orientation, Tab } from "@/services/types";
+import React from "react";
 import { Flex } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
-import PlaygroundProvider, { PlayGroundProps } from "~/providers/playground";
+import store from "@/store";
 import MenuBar from "../menu-bar";
-import { defaultCode } from "@/services/default-code";
+import { StoreProvider } from "easy-peasy";
+import Board from "../board";
 
 export default function Playground() {
-    const [activeTab, setActiveTab] = useState<Key>("App");
-
-    const [tabs, setTabs] = useState<Tab[]>(defaultTabs);
-
-    const [orientation, setOrientation] = useState<Orientation>("vertical");
-
-    const [code, setCode] = useState(defaultCode);
-
-    const setModelValue = (model: Key, key: string, value: string) => {
-        setCode((exc: any) => ({
-            ...exc,
-            [model]: {
-                ...exc[model],
-                [key]: value,
-            },
-        }));
-    };
-
-    const providerValue = useMemo<PlayGroundProps>(
-        () => ({
-            orientation,
-            setOrientation,
-            activeTab,
-            setActiveTab,
-            tabs,
-            setTabs,
-            code,
-            setModelValue,
-        }),
-        [orientation, activeTab, tabs, code]
-    );
-
     return (
-        <PlaygroundProvider value={providerValue}>
+        <StoreProvider store={store}>
             <Flex pos="fixed" boxSize="full">
                 <MenuBar />
+                <Board />
             </Flex>
-        </PlaygroundProvider>
+        </StoreProvider>
     );
 }
-const defaultTabs: Tab[] = [{ key: "App" }, { key: "styles" }];

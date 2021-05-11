@@ -10,14 +10,17 @@ import {
     Stack,
     Flex,
 } from "@chakra-ui/react";
-import { useContext, useEffect, useRef, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { models } from "@/services/models";
-import { PlaygroundContext } from "~/providers/playground";
+import React, { useEffect, useRef, useState } from "react";
+import { useStoreActions, useStoreState } from "@/store/hooks";
 import MenuAction from "../menu-action";
+import { Key } from "@/store/tabs";
 
 const OpenOverride = () => {
-    const { setTabs, setActiveTab, tabs } = useContext(PlaygroundContext);
+    const tabs = useStoreState((state) => state.tabs.items);
+    const setActiveTab = useStoreActions((actions) => actions.tabs.setActive);
+    const addTab = useStoreActions((actions) => actions.tabs.add);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [override, setOverride] = useState("");
     const initialRef = useRef(null);
@@ -35,10 +38,10 @@ const OpenOverride = () => {
         setOverride("");
     }, [isOpen]);
 
-    const openOverride = (key: any) => {
+    const openOverride = (key: Key) => {
         const tab = { key };
         const tabIsOpen = tabs.findIndex(({ key: k }) => k === key) >= 0;
-        if (!tabIsOpen) setTabs((t) => [...t, tab]);
+        if (!tabIsOpen) addTab(tab);
         setActiveTab(key);
         onClose();
     };
@@ -54,7 +57,7 @@ const OpenOverride = () => {
                 <ModalContent pb={5}>
                     <ModalHeader>Open Override</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody as="form">
+                    <ModalBody>
                         <Input
                             pr="4.5rem"
                             type="text"

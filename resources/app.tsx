@@ -1,3 +1,4 @@
+import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import VtrilProgress from "vtril-progress";
 import theme from "./theme";
