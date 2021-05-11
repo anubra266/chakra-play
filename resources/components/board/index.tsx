@@ -4,6 +4,7 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import "react-reflex/styles.css";
 import { ReflexContainer, ReflexSplitter, ReflexElement } from "react-reflex";
 import EditorPane from "./editor-pane";
+import PreviewPane from "./preview-pane";
 
 const Board = () => {
     const splitterBg = useColorModeValue("white", "brand.bg");
@@ -48,7 +49,7 @@ const Board = () => {
                 <ReflexSplitter />
 
                 <ReflexElement minSize={360} className="preview">
-                    <div>b</div>
+                   <PreviewPane />
                 </ReflexElement>
             </ReflexContainer>
         </Box>

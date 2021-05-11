@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex } from "@chakra-ui/react";
-// import CodeEditor from "@/editor";
+import CodeEditor from "~/editor";
 import EditorTabs from "./editor-tabs";
 
 const EditorPane = (props: any) => {
@@ -8,7 +8,9 @@ const EditorPane = (props: any) => {
     return (
         <Flex direction="column" w={width} h="full">
             <EditorTabs />
-            <Flex boxSize="full">{/* <CodeEditor /> */}</Flex>
+            <Flex boxSize="full">
+                <CodeEditor />
+            </Flex>
         </Flex>
     );
 };
