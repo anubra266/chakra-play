@@ -4,6 +4,9 @@ import { Box } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import Editor from "@monaco-editor/react";
 import React from "react";
+import { handleEditorDidMount } from "./editor-events";
+import { useEditorTheme } from "./editor-theme";
+import "./styles.css";
 
 const CodeEditor = () => {
     const activeTab = useStoreState((state) => state.tabs.active);
@@ -11,27 +14,25 @@ const CodeEditor = () => {
         (actions) => actions.code.setForModel
     );
 
-    function handleEditorDidMount(editor: any, monaco: any) {
-        editor.focus();
-    }
     function handleEditorChange(value: any, _event: any) {
         setModelValue({ key: activeTab, type: "value", value });
     }
 
     const file = models[activeTab];
-
+    const { theme } = useEditorTheme();
     return (
         <Box boxSize="full">
             <Editor
                 language="javascript"
                 loading={<Spinner />}
+                theme={theme}
                 defaultValue={file.defaultValue}
                 path={activeTab}
                 onMount={handleEditorDidMount}
                 onChange={handleEditorChange}
                 saveViewState
                 options={{
-                    autoIndent: true,
+                    autoIndent: "full",
                     wordWrap: "off",
                     smoothScrolling: true,
                     dragAndDrop: true,

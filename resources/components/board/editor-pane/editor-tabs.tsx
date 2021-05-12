@@ -85,9 +85,8 @@ const EditorTabs = () => {
     //? styles for active tab
     const activeStyles: Partial<FlexProps> = {
         color: mode("black", "white"),
-        bg: mode("gray.200", "blackAlpha.600"),
+        bg: mode("gray.200", "brand.bg"),
         borderTopColor: "brand.400",
-        borderTopWidth: "2px",
         transition: "all .1s ease-in-out",
     };
 
@@ -139,6 +138,8 @@ const EditorTabs = () => {
                             px={3}
                             align="center"
                             color={tabsColor}
+                            borderTopWidth="2px"
+                            borderTopColor="transparent"
                             {...(isActiveTab && activeStyles)}
                             role="group"
                             id={key}

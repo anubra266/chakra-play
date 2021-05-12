@@ -1,19 +1,20 @@
-// import { useColorModeValue, useColorMode } from "@chakra-ui/react";
-// import { useEffect, useState } from "react";
-// import monacoThemes from "monaco-themes/themes/themelist.json";
-// import { defineTheme } from "~/services/defineTheme";
+import { useColorModeValue, useColorMode } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { defineTheme } from "@/services/defineTheme";
+import { lightTheme } from "./themes/light";
+import { darkTheme } from "./themes/dark";
 
-type EditorThemeReturn = {
-    theme: string;
-};
-export const useEditorTheme = (): EditorThemeReturn => {
-    // const template = useColorModeValue("chrome-devtools", "brilliance-black");
-    // const [theme, setTheme] = useState("vs-dark");
-    // const { colorMode } = useColorMode();
-
-    // useEffect(() => {
-    //     defineTheme(template).then(() => setTheme(template));
-    // }, [colorMode]);
-
-    // return { theme };
+export const useEditorTheme = (): any => {
+    const template = useColorModeValue(
+        { name: "light", styles: lightTheme },
+        { name: "dark", styles: darkTheme }
+    );
+    const [theme, setTheme] = useState("dark");
+    const { colorMode } = useColorMode();
+    useEffect(() => {
+        defineTheme(template.name, template.styles).then(() =>
+            setTheme(template.name)
+        );
+    }, [colorMode]);
+    return { theme };
 };
