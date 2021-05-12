@@ -1,3 +1,3 @@
 <?php
 
-$router->inertia('/', 'index')->name('home');
+$router->inertia('/', 'home')->name('home');
