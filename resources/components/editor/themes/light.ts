@@ -7,48 +7,48 @@ export const lightTheme = {
         { token: "string", foreground: "#0000ff" },
         {
             token: "type.identifier.js",
-            foreground: "#C792EA",
+            foreground: "#267F99",
         },
         {
             token: "identifier.js",
-            foreground: "#FFBF7A",
+            foreground: "#FF0000",
             fontStyle: "italic",
         },
         {
             token: "delimiter.js",
-            foreground: "#00D9FF",
+            foreground: "#A31515",
         },
         {
             token: "string.js",
-            foreground: "#6AF699",
+            foreground: "#A31515",
         },
         {
             token: "delimiter.angle.js",
-            foreground: "#BAC7E4",
+            foreground: "#800000",
         },
         {
             token: "delimiter.bracket.js",
-            foreground: "#00D9FF",
-        },
-        {
-            token: "delimiter.bracket.embedded.js",
-            foreground: "#D1C000",
+            foreground: "#0000FF",
         },
         {
             token: "delimiter.square.js",
-            foreground: "#D1C000",
+            foreground: "#000000",
         },
         {
             token: "number.js",
-            foreground: "#FFBF7A",
+            foreground: "#098658",
         },
         {
             token: "keyword.js",
-            foreground: "#C792EA",
+            foreground: "#AF00DB",
         },
         {
             token: "delimiter.parenthesis.js",
-            foreground: "#BAC7E4",
+            foreground: "#000000",
+        },
+        {
+            token: "comment.js",
+            foreground: "#008000",
         },
     ],
     colors: {

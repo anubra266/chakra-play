@@ -34,10 +34,6 @@ export const darkTheme = {
             foreground: "#00D9FF",
         },
         {
-            token: "delimiter.bracket.embedded.js",
-            foreground: "#D1C000",
-        },
-        {
             token: "delimiter.square.js",
             foreground: "#D1C000",
         },
@@ -52,6 +48,10 @@ export const darkTheme = {
         {
             token: "delimiter.parenthesis.js",
             foreground: "#BAC7E4",
+        },
+        {
+            token: "comment.js",
+            foreground: "#506686",
         },
     ],
 
