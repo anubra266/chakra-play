@@ -12,7 +12,7 @@ render(
         <InertiaApp
             initialPage={JSON.parse(initialPage)}
             resolveComponent={async (name) =>
-                await import(`../pages/${name}/index.tsx`).then(
+                await import(`../pages/${name}.tsx`).then(
                     (module) => module.default
                 )
             }

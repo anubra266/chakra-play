@@ -1,7 +1,5 @@
 import React from "react";
-import loadable from "@loadable/component";
-
-const Playground = loadable(() => import("~/playground"));
+import Playground from "~/playground";
 
 export default function Home() {
     return (

@@ -6,17 +6,17 @@ import { themeCode } from "@/services/parse-code";
 import { useStoreState } from "@/store/hooks";
 
 const ChakraPlayApp = () => {
-    const code = useStoreState((state) => state.code.value);
+    const appCode = useStoreState((state) => state.code.value);
     return (
-        <LiveProvider scope={scope} code={code.App.value}>
+        <LiveProvider scope={scope} code={appCode}>
             <LivePreview />
         </LiveProvider>
     );
 };
 
 const Preview = () => {
-    const code = useStoreState((state) => state.code.value);
-    const themedCode = themeCode(code);
+    const { overrides } = useStoreState((state) => state.code);
+    const themedCode = themeCode(overrides);
     return (
         <>
             <LiveProvider scope={{ ...scope, ChakraPlayApp }} code={themedCode}>

@@ -4,8 +4,8 @@ export const themeCode = (code: any): string => {
     return `
     <ChakraProvider theme={extendTheme({
        ${parseOverrides(code)}
-    })}> 
-      <ChakraPlayApp/> 
+    })}>
+      <ChakraPlayApp/>
     </ChakraProvider>`;
 };
 
@@ -22,14 +22,12 @@ const codeExtract = (code: string, chars: string[]): string => {
  * @returns overrides object as string
  */
 export const parseOverrides = (code: any) => {
-    return Object.keys(models)
-        .filter((key) => !models[key].noExtend && code[key])
-        .reduce((acc, key) => {
-            const codeValue = code[key].value;
-            const obj = codeExtract(
-                codeValue,
-                isObject(codeValue) ? ["{", "}"] : ['"', '"']
-            );
-            return `${acc} ${key}:${obj},`;
-        }, "");
+    return Object.keys(code).reduce((acc, key) => {
+        const codeValue = code[key].value;
+        const obj = codeExtract(
+            codeValue,
+            isObject(codeValue) ? ["{", "}"] : ['"', '"']
+        );
+        return `${acc} ${key}:${obj},`;
+    }, "");
 };

@@ -1,12 +1,10 @@
 import { models } from "@/services/models";
 import { useStoreActions, useStoreState } from "@/store/hooks";
-import { Box } from "@chakra-ui/layout";
-import { Spinner } from "@chakra-ui/spinner";
+import { Box, Spinner } from "@chakra-ui/react";
 import Editor from "@monaco-editor/react";
 import React from "react";
 import { handleEditorDidMount } from "./editor-events";
 import { useEditorTheme } from "./editor-theme";
-import "./styles.css";
 
 const CodeEditor = () => {
     const activeTab = useStoreState((state) => state.tabs.active);

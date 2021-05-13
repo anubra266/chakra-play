@@ -34,6 +34,7 @@
         "react-icons": "^4.2.0",
         "react-live": "^2.2.3",
         "react-reflex": "^4.0.1",
+        "rollup-plugin-visualizer": "^5.5.0",
         "vtril-progress": "^2.0.0"
     }
 }

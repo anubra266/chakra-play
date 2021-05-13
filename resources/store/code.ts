@@ -1,6 +1,7 @@
 import { action, Action } from "easy-peasy";
 import { Key } from "./tabs";
 import { defaultCode } from "@/services/default-code";
+import { models } from "@/services/models";
 
 export type CodeProps = {
     value: string;
@@ -15,18 +16,20 @@ export interface SetForModel {
 }
 
 export interface CodeModel {
-    value: PlaygroundCode;
-    set: Action<CodeModel, PlaygroundCode>;
+    overrides: PlaygroundCode;
+    value: string;
     setForModel: Action<CodeModel, SetForModel>;
 }
 
 const codeModel: CodeModel = {
-    value: defaultCode,
-    set: action((state, payload) => {
-        state.value = payload;
-    }),
+    overrides: defaultCode,
+    value: models.App.defaultValue,
     setForModel: action((state, { key, type, value }) => {
-        state.value[key][type] = value;
+        if (key === "App") {
+            state.value = value;
+        } else {
+            state.overrides[key][type] = value;
+        }
     }),
 };
 
